@@ -1,43 +1,44 @@
-h1. lighthouse_cli
+lighthouse_cli
+===============
 
 A quick command line interface to lighthouse. The goal is to reduce overhead of tracking tickets inline with normal workflow. The effect is achieved by setting conventions.
 
-h2. Install
+Install
+--------
 
 Add github to gem sources unless you've done that before
 
-    sudo gem sources -a http://gems.github.com
-    sudo gem install maxim-lighthouse_cli
-    
+  sudo gem sources -a http://gems.github.com
+  sudo gem install maxim-lighthouse_cli
 
-h2. Usage
+
+Usage
+------
 
 1. Create Lhcfile in your project with the following yaml content (either user/pass or token, no need for both):
   
-  <pre language="yaml">
-    <code>
-      account:
-        example_account
-      project:
-        example_project
-      # username:
-      #   foo
-      # password:
-      #   bar
-      # token:
-      #   baz
-    </code>
-  </pre>
+        account:
+          example_account
+        project:
+          example_project
+        # username:
+        #   foo
+        # password:
+        #   bar
+        # token:
+        #   baz
 
 2. Add Lhcfile to .gitignore (avoid committing your token/password).
 3. Run lh help to get started.
 
-h2. Contact/Contribute
+Contact/Contribute
+-------------------
 
-If you'd like to comment on something -- I'm "@hakunin":http://twitter.com/hakunin on twitter.
-My "blog":http://mediumexposure.com has more ways to reach me. 
+If you'd like to comment on something -- I'm [@hakunin](http://twitter.com/hakunin) on twitter.
+My [blog](http://mediumexposure.com) has more ways to reach me. 
 For contributions simply fork, change, commit, send me pull requests.
 
-h2. Copyright
+Copyright
+----------
 
 Copyright (c) 2009 Maxim Chernyak. See LICENSE for details.

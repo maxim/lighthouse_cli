@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.executables = ["lh"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.textile"
+     "README.md"
   ]
   s.files = [
     ".document",
@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
      "LICENSE",
      "Lhcfile",
      "Lhcfile",
-     "README.textile",
      "Rakefile",
      "VERSION",
      "bin/lh",
