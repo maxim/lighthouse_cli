@@ -1,0 +1,10 @@
+account:
+  example_account
+project:
+  example_project
+# username:
+#   foo
+# password:
+#   bar
+# token:
+#   baz

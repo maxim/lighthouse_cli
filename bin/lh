@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+require 'yaml'
+require 'hirb'
+require 'lighthouse_cli'
+LighthouseCLI::Parser.go!

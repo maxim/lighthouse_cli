@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "lighthouse_cli"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{A quick command line interface to lighthouse.}
+    gem.description = %Q{A quick command line interface to lighthouse. The goal is to reduce overhead of tracking tickets inline with normal workflow. The effect is achieved by setting conventions.}
     gem.email = "max@bitsonnet.com"
     gem.homepage = "http://github.com/maxim/lighthouse_cli"
     gem.authors = ["Maxim Chernyak"]
+    gem.add_dependency "cldwalker-hirb"
     gem.add_development_dependency "thoughtbot-shoulda"
+    gem.files.include %w(Lhcfile vendor/* vendor/lighthouse-api/* vendor/lighthouse-api/lib/* vendor/lighthouse-api/lib/lighthouse/*)
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
