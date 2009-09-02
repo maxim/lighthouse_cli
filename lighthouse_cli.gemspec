@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Maxim Chernyak"]
-  s.date = %q{2009-09-01}
+  s.date = %q{2009-09-02}
   s.default_executable = %q{lh}
   s.description = %q{A quick command line interface to lighthouse. The goal is to reduce overhead of tracking tickets inline with normal workflow. The effect is achieved by setting conventions.}
   s.email = %q{max@bitsonnet.com}
@@ -29,6 +29,11 @@ Gem::Specification.new do |s|
      "VERSION",
      "bin/lh",
      "lib/lighthouse_cli.rb",
+     "lib/lighthouse_cli/authenticator.rb",
+     "lib/lighthouse_cli/commands.rb",
+     "lib/lighthouse_cli/config.rb",
+     "lib/lighthouse_cli/helpers.rb",
+     "lib/lighthouse_cli/parser.rb",
      "lighthouse_cli.gemspec",
      "test/lighthouse_cli_test.rb",
      "test/test_helper.rb",
