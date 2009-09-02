@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lighthouse_cli}
-  s.version = "1.0.1"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Maxim Chernyak"]
@@ -30,9 +30,14 @@ Gem::Specification.new do |s|
      "bin/lh",
      "lib/lighthouse_cli.rb",
      "lib/lighthouse_cli/authenticator.rb",
+     "lib/lighthouse_cli/authenticator.rb",
+     "lib/lighthouse_cli/commands.rb",
      "lib/lighthouse_cli/commands.rb",
      "lib/lighthouse_cli/config.rb",
+     "lib/lighthouse_cli/config.rb",
      "lib/lighthouse_cli/helpers.rb",
+     "lib/lighthouse_cli/helpers.rb",
+     "lib/lighthouse_cli/parser.rb",
      "lib/lighthouse_cli/parser.rb",
      "lighthouse_cli.gemspec",
      "test/lighthouse_cli_test.rb",
