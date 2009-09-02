@@ -15,6 +15,8 @@ module LighthouseCLI
         else
           puts "Unknown command \"#{meth}\"."
         end
+      rescue ActiveResource::TimeoutError, ActiveResource::ServerError
+        puts "There seems to be a problem with lighthouse server. Try again in a few."
       end
     end
   end
