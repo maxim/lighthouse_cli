@@ -3,9 +3,9 @@ module LighthouseCLI
     class << self
       def authenticate!
         auth_data = Config.token ? Config.token : [Config.username, Config.password]
-        auth_data.flatten!
-      
-        if auth_data.size == 1
+        auth_data.flatten! rescue nil
+
+        unless auth_data.size == 2
           authenticate_by_token(*auth_data)
         else
           authenticate_by_credentials(*auth_data)
