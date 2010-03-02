@@ -8,9 +8,12 @@ module LighthouseCLI
     def list(which = "next")
       case which
       when 'next'
-        puts "Milestone: #{fetch_next_milestone.title}"
-        tickets = fetch_tickets("responsible:me milestone:#{fetch_next_milestone.title} state:open sort:priority")
-        display_tickets tickets
+        milestone = fetch_next_milestone
+        if (milestone)
+          puts "Milestone: #{milestone.title}"
+          tickets = fetch_tickets("responsible:me milestone:#{fetch_next_milestone.title} state:open sort:priority")
+          display_tickets tickets
+        end
       else
         milestones = fetch_milestones_by_title(which)
         milestones.each do |ms|
@@ -48,9 +51,9 @@ module LighthouseCLI
       puts "  Ticket ##{id} (#{ticket.state})"
       puts "  #{ticket.title}"
       puts "  #{ticket.body}" unless ticket.body.blank?
-      puts "  #{ticket.tags.join(', ')}" unless ticket.tags.blank? 
+      puts "  #{ticket.tags.join(', ')}" unless ticket.tags.blank?
     end
-    
+
     def ms(which = "future")
       milestones = case which
       when 'all'
@@ -58,8 +61,8 @@ module LighthouseCLI
       when 'future'
         fetch_future_milestones
       end
-      
-      display_milestones milestones 
+
+      display_milestones milestones
     end
 
     def help
@@ -70,10 +73,10 @@ module LighthouseCLI
 
   list [milestone_name]
     List all assigned tickets from next upcoming milestone (by default). Otherwise, list all tickets in all milestones matching milestone name.
-    
+
   ms [all]
     List future milestones (by default). List all milestones when option "all" provided.
-    
+
   show 50
     Show details for ticket with given id.
 
