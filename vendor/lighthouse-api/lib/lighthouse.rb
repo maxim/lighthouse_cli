@@ -23,10 +23,10 @@ rescue LoadError => e
   puts e.message
 end
 
-require 'activesupport'
-require 'activeresource'
+require 'active_support'
+require 'active_resource'
 
-# Ruby lib for working with the Lighthouse API's XML interface.  
+# Ruby lib for working with the Lighthouse API's XML interface.
 # The first thing you need to set is the account name.  This is the same
 # as the web address for your account.
 #
@@ -79,7 +79,7 @@ module Lighthouse
       @resources ||= []
     end
   end
-  
+
   self.host_format   = '%s://%s%s'
   self.domain_format = '%s.lighthouseapp.com'
   self.protocol      = 'http'
@@ -95,7 +95,7 @@ module Lighthouse
       super
     end
   end
-  
+
   # Find projects
   #
   #   Lighthouse::Project.find(:all) # find all projects for the current account.
@@ -108,14 +108,14 @@ module Lighthouse
   #   # => true
   #
   # Creating an OSS project
-  # 
+  #
   #   project = Lighthouse::Project.new(:name => 'OSS Project')
   #   project.access = 'oss'
   #   project.license = 'mit'
   #   project.save
-  # 
+  #
   # OSS License Mappings
-  # 
+  #
   #   'mit' => "MIT License",
   #   'apache-2-0' => "Apache License 2.0",
   #   'artistic-gpl-2' => "Artistic License/GPLv2",
@@ -125,7 +125,7 @@ module Lighthouse
   #   'mozilla-1-1' => "Mozilla Public License 1.1"
   #   'new-bsd' => "New BSD License",
   #   'afl-3' => "Academic Free License v. 3.0"
-  
+
   #
   # Updating a Project
   #
@@ -135,7 +135,7 @@ module Lighthouse
   #   project.save
   #
   # Finding tickets
-  # 
+  #
   #   project = Lighthouse::Project.find(44)
   #   project.tickets
   #
@@ -143,19 +143,19 @@ module Lighthouse
     def tickets(options = {})
       Ticket.find(:all, :params => options.update(:project_id => id))
     end
-  
+
     def messages(options = {})
       Message.find(:all, :params => options.update(:project_id => id))
     end
-  
+
     def milestones(options = {})
       Milestone.find(:all, :params => options.update(:project_id => id))
     end
-  
+
     def bins(options = {})
       Bin.find(:all, :params => options.update(:project_id => id))
     end
-    
+
     def changesets(options = {})
       Changeset.find(:all, :params => options.update(:project_id => id))
     end
@@ -174,14 +174,14 @@ module Lighthouse
       Membership.find(:all, :params => {:user_id => id})
     end
   end
-  
+
   class Membership < Base
     site_format << '/users/:user_id'
     def save
       raise Error, "Cannot modify memberships from the API"
     end
   end
-  
+
   class ProjectMembership < Base
     self.element_name = 'membership'
     site_format << '/projects/:project_id'
@@ -194,7 +194,7 @@ module Lighthouse
       raise Error, "Cannot modify memberships from the API"
     end
   end
-  
+
   class Token < Base
     def save
       raise Error, "Cannot modify Tokens from the API"
@@ -261,7 +261,7 @@ module Lighthouse
       end.join(" ") if @tags.is_a?(Array)
       @tags = nil ; save_without_tags
     end
-    
+
     alias_method_chain :save, :tags
 
     private
@@ -271,13 +271,13 @@ module Lighthouse
 
         # first, pull out the quoted tags
         list.gsub!(/\"(.*?)\"\s*/ ) { tags << $1; "" }
-        
+
         # then, get whatever's left
         tags.concat list.split(/\s/)
 
         cleanup_tags(tags)
       end
-    
+
       def cleanup_tags(tags)
         returning tags do |tag|
           tag.collect! do |t|
@@ -296,11 +296,11 @@ module Lighthouse
         end
       end
   end
-  
+
   class Message < Base
     site_format << '/projects/:project_id'
   end
-  
+
   class Milestone < Base
     site_format << '/projects/:project_id'
 
@@ -308,7 +308,7 @@ module Lighthouse
       Ticket.find(:all, :params => options.merge(prefix_options).update(:q => %{milestone:"#{title}"}))
     end
   end
-  
+
   class Bin < Base
     site_format << '/projects/:project_id'
 
@@ -316,11 +316,11 @@ module Lighthouse
       Ticket.find(:all, :params => options.merge(prefix_options).update(:q => query))
     end
   end
-  
+
   class Changeset < Base
     site_format << '/projects/:project_id'
   end
-  
+
   class Change < Array; end
 
   class TagResource < Base
@@ -335,7 +335,7 @@ module Lighthouse
       name.tickets(options)
     end
   end
-  
+
   class Tag < String
     attr_writer :prefix_options
     attr_accessor :project_id
