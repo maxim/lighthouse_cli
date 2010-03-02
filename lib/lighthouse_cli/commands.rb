@@ -13,6 +13,9 @@ module LighthouseCLI
           puts "Milestone: #{milestone.title}"
           tickets = fetch_tickets("responsible:me milestone:#{fetch_next_milestone.title} state:open sort:priority")
           display_tickets tickets
+        else
+          tickets = fetch_tickets
+          display_tickets tickets
         end
       else
         milestones = fetch_milestones_by_title(which)
