@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/maxim/lighthouse_cli"
     gem.authors = ["Maxim Chernyak"]
     gem.add_dependency "cldwalker-hirb"
+    gem.add_dependency "addressable"
     gem.add_development_dependency "thoughtbot-shoulda"
     gem.files.include %w(Lhcfile lib/lighthouse_cli/* vendor/* vendor/lighthouse-api/* vendor/lighthouse-api/lib/* vendor/lighthouse-api/lib/lighthouse/*)
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
